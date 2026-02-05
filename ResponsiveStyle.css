@@ -1,6 +1,5 @@
 body{
     height: 100vw;
-   
     margin: 0;
 }
 nav
@@ -8,7 +7,6 @@ nav
     flex-direction: row;
     justify-content:end;
     align-items: center;
-    
     background-color: black;
     height:80px;
     
@@ -65,7 +63,7 @@ nav a
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     margin: 50px auto;
-    max-width: 1200px;te
+    max-width: 1200px;
 }
 
 .innerSevice {
