@@ -1,0 +1,19 @@
+.errorMsg
+{
+    visibility: hidden;
+    color: red;
+}
+.card
+{
+ 
+    position: absolute;
+    text-align: center;  
+    padding: 50px;
+    width: fit-content;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition-duration: 2s;
+    transition-timing-function:ease-in-out;
+    
+}
