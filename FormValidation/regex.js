@@ -28,35 +28,58 @@ function userNameCheck()
 }
 
 
+
+
 let password=document.getElementById("password")
-
-let passReges = /^(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
-
+let PasserrorMsg=document.querySelectorAll(".PasserrorMsg")
 
 function passCheck()
 {
     if(password.value)
     {
-
-    if(!passReges.test(password.value.trim()))
+    PasserrorMsg[3].style.visibility="hidden"
+    PasserrorMsg[3].textContent=""
+    if(!/[A-Z]/.test(password.value))
     {
-        errorMsg[1].style.visibility="visible"
-        errorMsg[1].textContent="The Password is invalid"
+        PasserrorMsg[0].style.visibility="visible"
+        PasserrorMsg[0].textContent="At least 1 uppercase letter (A–Z)"
     }
     else
     {
-     errorMsg[1].style.visibility="hidden"  
-     errorMsg[1].textContent=""
+     PasserrorMsg[0].style.visibility="hidden"  
+     PasserrorMsg[0].textContent=""
      
     }
+    if(!/\d/.test(password.value))
+    {
+        PasserrorMsg[1].style.visibility="visible"
+        PasserrorMsg[1].textContent="At least 1 number (0-9)"
+    }
+    else{
+        PasserrorMsg[1].style.visibility="hidden"
+        PasserrorMsg[1].textContent=""
+    }
+    if(password.value.length<8)
+    {
+        PasserrorMsg[2].style.visibility="visible"
+        PasserrorMsg[2].textContent="Minimum 8 characters"
     }
     else
     {
-        errorMsg[1].style.visibility="visible"
-        errorMsg[1].textContent="The Field is Empty"
+     
+        PasserrorMsg[2].style.visibility="hidden"
+        PasserrorMsg[2].textContent=""   
+    }
+
+    }  
+    else
+    {
+        PasserrorMsg[3].style.visibility="visible"
+        PasserrorMsg[3].textContent="The Field is Empty"
     }
 
 }
+password.addEventListener("input",passCheck)
 
 let phone=document.getElementById("phone")
 let phoneRegex=/^[6-9]\d{9}$/
@@ -65,23 +88,21 @@ function phoneCheck()
 {
     if(phone.value)
     {
-
-    
     if(!phoneRegex.test(phone.value.trim()))
     {
-        errorMsg[2].style.visibility="visible";
-        errorMsg[2].textContent="The Phone Number is invalid"
+        errorMsg[1].style.visibility="visible";
+        errorMsg[1].textContent="The Phone Number is invalid"
     }
     else{
-        errorMsg[2].style.visibility="hidden";
-        errorMsg[2].textContent=""
+        errorMsg[1].style.visibility="hidden";
+        errorMsg[1].textContent=""
     }
 
 }
 else
 {
-    errorMsg[2].style.visibility="visible"
-    errorMsg[2].textContent="The Field is Empty"
+    errorMsg[1].style.visibility="visible"
+    errorMsg[1].textContent="The Field is Empty"
 }
 
 }
@@ -94,19 +115,19 @@ function emailCheck()
    {
     if(!emailRegex.test(email.value.trim()))
     {
-        errorMsg[3].style.visibility="visible"
-        errorMsg[3].textContent="The email is invalid"
+        errorMsg[2].style.visibility="visible"
+        errorMsg[2].textContent="The email is invalid"
     }
     else
     {
-        errorMsg[3].style.visibility="hidden"
-        errorMsg[3].textContent=""
+        errorMsg[2].style.visibility="hidden"
+        errorMsg[2].textContent=""
     }
 }
 else
 {
-    errorMsg[3].style.visibility="visible"
-    errorMsg[3].textContent="The Field is Empty"
+    errorMsg[2].style.visibility="visible"
+    errorMsg[2].textContent="The Field is Empty"
 }
 }
 
